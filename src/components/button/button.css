@@ -1,0 +1,9 @@
+button.btn.btn-primary {
+  background: #939aa9;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
