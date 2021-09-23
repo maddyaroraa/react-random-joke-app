@@ -1,17 +1,17 @@
 import React, {useRef} from 'react';
-import './card.css'; 
+import './Card.css'; 
 
 
 const Card = (props) => {
 
-    const { joke } = props;
+    const { content, children} = props;
 
     const inputRef = useRef(null);
     // console.log(props);
 
-    function copyTrigger() {
-        console.log(inputRef.current.innerHTML);
-    }
+    // function copyTrigger() {
+    //     console.log(inputRef.current.innerHTML);
+    // }
 
 
     return <div className="card-container">       
@@ -21,9 +21,9 @@ const Card = (props) => {
             </div>
 
             <div className="card-content">
-                <p className="sub-jokes" ref={inputRef} onClick={() => {copyTrigger()}}>{joke}</p>
+                <p className="sub-jokes" ref={inputRef} >{content}</p>
             </div>    
-            {props.children}
+            {children}
         </div>
 
     </div>;

@@ -1,14 +1,8 @@
 import React from 'react';
-import Card from '../card/';
-import './button.css'; 
+import './Button.css'; 
 const Button = (props) => {
-    const {className } = props;
-    
+    const {className, onClick, children = 'submit' } = props;
 
-    // const buttonTrigger = () => {
-    //     jokeTrigger(true)
-    // }
-
-    return <button type="button" onClick={() => props.updateState(Math.random())} className={`btn btn-primary ${className}`}> {props.children ?? 'Submit'} </button>;
+    return <button type="button" onClick={() => onClick(Math.random())} className={`btn btn-primary ${className}`}> {children} </button>;
 }
 export default Button;

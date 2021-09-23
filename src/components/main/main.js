@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import Card from '../card/';
-import './main.css'; 
-import Button from '../button/button';
+import Card from '../Card/Index';
+import './Main.css'; 
+import Button from '../Button/Button'; 
 // require ('../../Config.js');
 
 const Main = () => {
@@ -12,8 +12,8 @@ const config = {
    
 
 
-    const [jokeTriggred, jokeTrigger] = useState(false);
-    const [jokeObject, JokeObjectSet] = useState({});
+    const [jokeTriggred, setjokeTrigger] = useState(false);
+    const [jokeObject, setJokeObjectSet] = useState({});
 
     useEffect(() => {
         const jokeApi =  fetch('https://icanhazdadjoke.com/', {
@@ -25,7 +25,7 @@ const config = {
                                return response.json();
                             }
                     throw response;
-            }).then(data =>JokeObjectSet(data)
+            }).then(data =>setJokeObjectSet(data)
             );
          
      }, [jokeTriggred]);
@@ -34,8 +34,8 @@ const config = {
 
         <h1 className="main-title">{config.title}</h1>
 
-        <Card joke={jokeObject.joke}>
-            <Button updateState={jokeTrigger} className="joke-triger">{config.button_content}</Button>
+        <Card content={jokeObject.joke}>
+            <Button onClick={setjokeTrigger} className="joke-triger">{config.button_content}</Button>
         </Card>
         
     </div>;
